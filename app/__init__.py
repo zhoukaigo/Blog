@@ -9,7 +9,7 @@ db = SQLAlchemy()
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
-login_manager.login_message = u'Please log in first!'
+login_manager.login_message = 'Please log in first!'
 
 def create_app():
 	app = Flask(__name__)
@@ -20,5 +20,8 @@ def create_app():
 
 	from .main import main as main_blueprint
 	app.register_blueprint(main_blueprint)
+
+	from .auth  impor auth as auth_blueprint
+	app.register_blueprint(auth_blueprint, url_prefix='/auth')
 
 	return app
