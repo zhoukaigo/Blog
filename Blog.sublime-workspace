@@ -1,0 +1,1172 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"ma",
+				"margin-right"
+			],
+			[
+				"m",
+				"margin-left"
+			],
+			[
+				"a",
+				"archives"
+			],
+			[
+				"c",
+				"create_app	function"
+			],
+			[
+				"B",
+				"Bootstrap	class"
+			],
+			[
+				"Sub",
+				"submit"
+			],
+			[
+				"R",
+				"Required	import"
+			],
+			[
+				"wtf",
+				"wtfroms"
+			],
+			[
+				"boo",
+				"bootstrap	statement"
+			],
+			[
+				"u",
+				"ul	Tag"
+			],
+			[
+				"ema",
+				"email_en"
+			],
+			[
+				"mail",
+				"MAIL_SERVER"
+			],
+			[
+				"M",
+				"Message"
+			],
+			[
+				"cla",
+				"__class__"
+			],
+			[
+				"__",
+				"__file__	instance"
+			],
+			[
+				"p",
+				"print"
+			],
+			[
+				"get",
+				"getattr"
+			],
+			[
+				"utc",
+				"utcnow	function"
+			],
+			[
+				"dat",
+				"datetime	class"
+			],
+			[
+				"if",
+				"ifmain	if __name__ == '__main__'"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/templates/sidebar.html",
+			"settings":
+			{
+				"buffer_size": 236,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/templates/index.html",
+			"settings":
+			{
+				"buffer_size": 28,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "{% extends \"bootstrap/base.html\" %}\n\n{% block title %}周凯{% endblock %}\n\n{% block head %}\n{{ super() }}\n<link rel=\"shortcut icon\" href=\"{{ url_for('static', filename='zhoukai.ico') }}\" type=\"image/x-icon\">\n<link rel=\"icon\" href=\"{{ url_for('static', filename='zhoukai.ico') }}\" type=\"image/x-icon\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"{{ url_for('static', filename='mystyles.css') }}\">\n{% endblock %}\n\n{% block navbar %}\n<nav class=\"navbar navbar-default\">\n	<div class=\"container-fluid\">\n	    <!-- Brand and toggle get grouped for better mobile display -->\n	    <div class=\"navbar-header\">\n		    <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n		        <span class=\"sr-only\">Toggle navigation</span>\n		        <span class=\"icon-bar\"></span>\n		        <span class=\"icon-bar\"></span>\n		        <span class=\"icon-bar\"></span>\n		    </button>\n		    <a class=\"navbar-brand\" href=\"{{ url_for('main.index') }}\">周凯</a>\n	    </div>\n\n	    <!-- Collect the nav links, forms, and other content for toggling -->\n	    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n	    	<ul class=\"nav navbar-nav\">\n		        <li class=\"active\"><a href=\"{{ url_for('main.index') }}\">首页 <span class=\"sr-only\">(current)</span></a></li>\n		        <li><a href=\"{{ url_for('main.archives') }}\">存档</a></li>\n		        <li><a href=\"{{ url_for('main.about') }}\">关于</a></li>\n	    	</ul>\n	    	<form class=\"navbar-form navbar-left\" role=\"search\">\n		        <div class=\"form-group\">\n		          <input type=\"text\" class=\"form-control\" placeholder=\"搜索|暂不可用\">\n		        </div>\n		        <button type=\"submit\" class=\"btn btn-default\">Submit</button>\n	    	</form>\n	    	<ul class=\"nav navbar-nav navbar-right\">\n		        <li>\n		        	<p class=\"navbar-text\" style=\"margin-top: 10px; margin-bottom: 0px;\">\n			            <a type=\"application/rss+xml\" href=\"/feed\"><img src=\"/static/rss.png\" alt=\"RSS Feed\" title=\"RSS Feed\" /></a>\n			            <a href=\"http://github.com/zhoukaigo/\"><img src=\"/static/github.png\" alt=\"GitHub\" title=\"GitHub\" /></a>\n			            <a href=\"http://weibo.com/u/2446719565/\"><img src=\"/static/weibo.png\" alt=\"Facebook\" title=\"Facebook\" /></a>\n		        	</p>\n		        </li>\n	    	</ul>\n	    </div><!-- /.navbar-collapse -->\n	</div><!-- /.container-fluid -->\n</nav>\n{% endblock %}\n\n{% block content %}\n<div class=\"main-part\">\n	<div class=\"row\">\n		<div class=\"col-md-8\">\n			<div class=\"col-md-8\">\n				<h1>文章文章文章文章文章文章文章文章文章文章</h1>\n		\n			<div class=\"col-md-4\">\n				{% include 'sidebar.html' %} \n			</div>\n		</div>\n	</div>	\n</div>\n\n{% endblock %}\n\n<!-- <h1>Hello World!</h1> -->",
+			"file": "app/templates/base.html",
+			"file_size": 2841,
+			"file_write_time": 130942992576165290,
+			"settings":
+			{
+				"buffer_size": 2691,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "{% block doc -%}\n<!DOCTYPE html>\n<html>\n	<head>\n		<meta charset=\"utf-8\">\n		<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n		<title>周凯</title>\n		<link rel=\"icon\" href=\"{{ url_for('static', filename='zhoukai.ico') }}\" type=\"image/x-icon\">\n\n		{%- block styles %}\n			<link rel=\"stylesheet\" type=\"text/css\" href=\"{{ url_for('static', filename='mystyles.css') }}\">\n			<link href=\"{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}\" rel=\"stylesheet\">\n			<!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->\n	        <!--[if lt IE 9]>\n	        <script src=\"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script>\n	        <script src=\"https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js\"></script>\n	        <![endif]-->\n		{%- endblock styles %}\n	</head>\n<body>\n	{% block body -%}\n		{% include 'nav.html' %} \n\n		{% block content -%}\n\n		{% endblock content -%}\n\n		{% block scripts %}\n			<script src=\"{{bootstrap_find_resource('jquery.js', cdn='jquery')}}\"></script>\n	    	<script src=\"{{bootstrap_find_resource('js/bootstrap.js', cdn='bootstrap')}}\"></script>	\n		{% endblock scripts %}\n	{% endblock body -%}\n</body>\n</html>\n{% endblock doc -%}\n<!-- Bootstrap不支持IE的兼容模式，这行代码是为了在IE中运行最新的渲染模式 -->",
+			"file": "app/templates/mybase.html",
+			"file_size": 907,
+			"file_write_time": 131022483457907413,
+			"settings":
+			{
+				"buffer_size": 1245,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/media/zhoukai/DATA/bootstrap-3.3.6/dist/css/bootstrap.css",
+			"settings":
+			{
+				"buffer_size": 146082,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/templates/nav.html",
+			"settings":
+			{
+				"buffer_size": 1952,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 336.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"up",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"ssp",
+				"Set Syntax: Python"
+			],
+			[
+				"py",
+				"SublimeREPL: Python"
+			],
+			[
+				"pyt",
+				"SublimeREPL: Python"
+			],
+			[
+				"python",
+				"SublimeREPL: Python"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"ssm",
+				"Set Syntax: Markdown"
+			],
+			[
+				"sspy",
+				"Set Syntax: Python"
+			],
+			[
+				"ssjs",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"ssh",
+				"Set Syntax: HTML"
+			],
+			[
+				"ac",
+				"Virtualenv: Activate"
+			],
+			[
+				"view ",
+				"View: Toggle Menu"
+			],
+			[
+				"save",
+				"Project: Save As"
+			],
+			[
+				"add",
+				"Project: Add Folder"
+			],
+			[
+				"virtual",
+				"Virtualenv: Activate"
+			],
+			[
+				"ssCSS",
+				"Set Syntax: CSS"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"move",
+				"MoveText: Move Down"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"enab",
+				"Package Control: Enable Package"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"code",
+				"SublimeCodeIntel: Reset"
+			],
+			[
+				"dis",
+				"SublimeCodeIntel: Disable Live Autocompletion"
+			],
+			[
+				"remove packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"align",
+				"Package Control: Install Package"
+			],
+			[
+				"sideba",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"side",
+				"View: Toggle Side Bar"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"sidebar",
+				"SublimeCodeIntel: Enable Live Autocompletion for Current Language"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 516.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"sublime.log_commands(False)",
+			"sublime.log_commands(Fauls)",
+			"sublime.log_commands(Fause)",
+			"sublime.log_commands(Faulse)",
+			"sublime.log_commands(True)",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/zhoukai/Code/Blog",
+		"/home/zhoukai/Code/Blog/app",
+		"/home/zhoukai/Code/Blog/app/static",
+		"/home/zhoukai/Code/Blog/app/templates"
+	],
+	"file_history":
+	[
+		"/home/zhoukai/Code/Blog/Blog.sublime-project",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/User/SublimeREPL.sublime-settings",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/User/sublime_jedi.sublime-settings",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/User/Side Bar.sublime-settings",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/User/GitGutter.sublime-settings",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/User/bh_core.sublime-settings",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/User/Base File.sublime-settings",
+		"/D/Program/Blog/app/templates/index.html",
+		"/D/Program/Blog/app/static/styles1.css",
+		"/D/Program/Blog/venv/Lib/site-packages/flask_bootstrap/templates/bootstrap/base.html",
+		"/D/Program/Blog/app/templates/base.html",
+		"/D/Program/Blog/app/templates/sidebar.html",
+		"/D/Program/Blog/app/main/views.py",
+		"/D/Program/Blog/app/main/__init__.py",
+		"/D/Program/Blog/app/static/mystyles.css",
+		"/D/Program/Blog/app/static/test.html",
+		"/D/Program/Blog/app/models.py",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/User/Emmet.sublime-settings",
+		"/D/Program/Blog/app/templates/about.html",
+		"/D/Program/Blog/app/templates/archives.html",
+		"/D/Program/Blog/app/templates/403.html",
+		"/C/Users/zhoukai/Desktop/404-master/index.html",
+		"/C/Users/zhoukai/Desktop/404-master/css/main.css",
+		"/D/Program/Blog/app/templates/navbar.html",
+		"/D/Program/Blog/app/__init__.py",
+		"/D/Program/Blog/manage.py",
+		"/D/Program/Blog/venv/Lib/site-packages/Flask_Bootstrap-3.3.5.7.dist-info/RECORD",
+		"/D/Program/Blog/templates/myindex.html",
+		"/D/Program/Blog/create_venv.bat",
+		"/D/Program/MyMicroblog/templates/base.html",
+		"/D/Program/MyMicroblog/manage.py",
+		"/D/Program/MyMicroblog/microblog.sublime-project",
+		"/D/Other/flasky/app/__init__.py",
+		"/D/Other/flasky/app/models.py",
+		"/D/Other/flasky/flasky.sublime-project",
+		"/D/Other/flasky/app/templates/_posts.html",
+		"/D/Other/flasky/app/templates/_comments.html",
+		"/D/Other/flasky/app/templates/index.html",
+		"/D/Other/flasky/app/templates/post.html",
+		"/D/Other/flasky/tests/test_user_model.py",
+		"/D/Other/flasky/app/templates/login.html",
+		"/D/Other/flasky/manage.py",
+		"/D/Other/flasky/venv/Lib/site-packages/flask_login.py",
+		"/D/Other/flasky/venv/Lib/site-packages/flask/blueprints.py",
+		"/D/Other/flasky/app/main/__init__.py",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/SublimeREPL/SublimeREPL.sublime-settings",
+		"/D/Other/flasky/app/auth/views.py",
+		"/D/Other/flasky/TEST.py",
+		"/D/Other/flasky/config.py",
+		"/D/Other/flasky/app/email.py",
+		"/D/Other/flasky/create_venv.bat",
+		"/D/Other/flasky/checkout_flasky.sh",
+		"/D/Other/flasky/create_venv.sh",
+		"/D/Other/flasky/app/auth/forms.py",
+		"/D/Other/flasky/app/main/forms.py",
+		"/D/Other/flasky/app/main/views.py",
+		"/D/Other/Python/animals.py",
+		"/D/Other/flasky/hello.py",
+		"/D/Other/flasky/templates/index.html",
+		"/D/Other/flasky/t2.py",
+		"/D/Other/hexo/hexo-theme-next/layout/index.swig",
+		"/D/Other/flasky/test.py",
+		"/C/Users/zhoukai/Desktop/清除系统LJ.bat",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+		"/D/Other/flasky/aaaa.py",
+		"/D/Other/flasky/templates/base.html",
+		"/D/Other/Python/send_mail.py",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/GitGutter/Default (Windows).sublime-keymap",
+		"/D/Other/flasky/tea.py",
+		"/D/Other/flasky/venv/Lib/site-packages/flask_bootstrap/templates/bootstrap/base.html",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/GitGutter/GitGutter.sublime-settings",
+		"/D/Other/flasky/static/favicon.ico",
+		"/D/Other/flasky/templates/user.html",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/Alignment/Default (Windows).sublime-keymap",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/Alignment/Base File.sublime-settings",
+		"/C/Users/zhoukai/Desktop/test.py",
+		"/C/Users/zhoukai/Desktop/program.html",
+		"/C/Users/zhoukai/Desktop/program.js",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/User/flasky.sublime-build",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/User/test3.py",
+		"/C/Users/zhoukai/Desktop/adgg.py",
+		"/D/Other/Html/get_bootstrap.html",
+		"/C/Users/zhoukai/Desktop/add_test.py",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/Jedi - Python autocompletion/sublime_jedi.sublime-settings",
+		"/C/Users/zhoukai/Desktop/asdf.py",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/User/SublimeCodeIntel.sublime-settings",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/D/Other/Python/2.py",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/Pylinter/Default (Windows).sublime-keymap",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/D/Other/Python/tes.py",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/SideBarEnhancements/Default (Windows).sublime-keymap",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/SublimeCodeIntel/README.rst",
+		"/C/Users/zhoukai/AppData/Roaming/Sublime Text 3/Packages/User/Pylinter.sublime-settings",
+		"/D/Other/Python/decorator.py",
+		"/C/Users/zhoukai/Desktop/.codeintel/config.json"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"container",
+			"viewport",
+			"base.html",
+			"}}\">",
+			"base.html",
+			"bootstrap/base.html",
+			"base.html",
+			"main",
+			"views",
+			"import_name",
+			"create_myapp",
+			"create_app",
+			"main",
+			"FLASK_CONFIG",
+			"Follow",
+			"db",
+			"include '_posts.html",
+			"id",
+			"insert_roles",
+			"db",
+			"member_since",
+			"login_required",
+			"before_app_request",
+			"role",
+			"insert_roles",
+			"current_app",
+			"config",
+			"test",
+			"TEST",
+			"app",
+			"config",
+			"FLASKY_ADMIN",
+			"send_async_email",
+			"FLASKY_ADMIN",
+			"MAIL_USERNAME",
+			"FLASKY_MAIL_SENDER",
+			"MAIL_USERNAME",
+			"send_email",
+			"load_user",
+			"get_auth_token",
+			"send_email",
+			"send_async_email",
+			"token",
+			"tiken",
+			"login_manager",
+			"db.session",
+			"db",
+			"FLASKY_ADMIN",
+			"Blueprint",
+			"SQLAlchemy",
+			"register",
+			"# # -*- coding:gbk -*-",
+			"NYPizzaStore",
+			"Packages",
+			"create_app",
+			"creat_app",
+			"FLASKY_ADMIN",
+			"FLASKY_MAIL_SENDER",
+			"FLASKY_ADMIN",
+			"FLASKY_MAIL_SENDER",
+			"MAIL_USERNAME",
+			"FLASKY_MAIL_SENDER",
+			"send_email",
+			"MAIL_USERNAME",
+			"FLASKY_MAIL_SENDER",
+			"example",
+			"flasky@example.com",
+			"example",
+			"flasky",
+			"FLASKY_MAIL_SENDER",
+			"True",
+			"NameErro",
+			"getattr",
+			"text",
+			"type",
+			"(,",
+			"bases",
+			"class_or_type_or_tuple",
+			"lass_or_type_or_tuple",
+			"input",
+			"name",
+			"45",
+			"menu item",
+			"27",
+			"D",
+			"f12",
+			"27",
+			"D",
+			"27",
+			"D"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/templates/sidebar.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 236,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								236,
+								236
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/templates/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 28,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								28,
+								28
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/templates/base.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2691,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2563,
+								2563
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 918.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/templates/mybase.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1245,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1245,
+								1245
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"open_with_edit": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 561.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/media/zhoukai/DATA/bootstrap-3.3.6/dist/css/bootstrap.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 146082,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11764,
+								11764
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 11474.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/templates/nav.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1952,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1952,
+								1952
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"open_with_edit": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 153.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Blog.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"/media/zhoukai/DATA/Program/Blog/Blog.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 165.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
