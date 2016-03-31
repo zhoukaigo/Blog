@@ -1,0 +1,36 @@
+{% block doc -%}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>周凯</title>
+		<link rel="icon" href="{{ url_for('static', filename='zhoukai.ico') }}" type="image/x-icon">
+
+		{%- block styles %}
+			<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mystyles.css') }}">
+			<link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" rel="stylesheet">
+			<!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+	        <!--[if lt IE 9]>
+	        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	        <![endif]-->
+		{%- endblock styles %}
+	</head>
+<body>
+	{% block body -%}
+		{% include 'nav.html' %} 
+
+		{% block content -%}
+
+		{% endblock content -%}
+
+		{% block scripts %}
+			<script src="{{bootstrap_find_resource('jquery.js', cdn='jquery')}}"></script>
+	    	<script src="{{bootstrap_find_resource('js/bootstrap.js', cdn='bootstrap')}}"></script>	
+		{% endblock scripts %}
+	{% endblock body -%}
+</body>
+</html>
+{% endblock doc -%}
+<!-- Bootstrap不支持IE的兼容模式，这行代码是为了在IE中运行最新的渲染模式 -->
