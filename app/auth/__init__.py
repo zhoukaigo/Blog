@@ -1,5 +1,5 @@
-from flask import Blueprit
+from flask import Blueprint
 
-auth = Blueprit('auth', __name__)
+auth = Blueprint('auth', __name__)
 
 from . import views
