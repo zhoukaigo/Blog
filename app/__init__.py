@@ -2,6 +2,7 @@ from flask import Flask
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager
+from config import config
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()
@@ -13,6 +14,8 @@ login_manager.login_message = 'Please log in first!'
 
 def create_app():
 	app = Flask(__name__)
+	app.config.from_object(config)
+	config.init_app(app)
 
 	bootstrap.init_app(app)
 	db.init_app(app)
