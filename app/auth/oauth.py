@@ -1,4 +1,5 @@
-from flask import current_app
+from rauth import OAuth2Service
+from flask import current_app, url_for, redirect
 
 class OAuthSignIn(object):
 	providers = None
@@ -40,7 +41,11 @@ class FacebookSignIn(OAuthSignIn):
 		)
 
 	def authorize(self):
-		pass
+		return redirect(self.service.get_authorize_url(
+			scope='email',
+			response_type='code',
+			redirect_uri= 'https://www.facebook.com/connect/login_success.html'
+		)
 
 	def callback():
 		pass
