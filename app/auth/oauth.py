@@ -23,7 +23,7 @@ class OAuthSignIn(object):
 	def get_provider(self, provider_name):
 		if self.providers is None:
 			self.providers = {}
-			for provider_class in self.__subclass__():
+			for provider_class in self.__subclasses__():
 				provider = proveder_class()
 				self.providers[provider.provider_name] = provider
 		return self.providers[provider_name]
