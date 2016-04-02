@@ -17,15 +17,15 @@ class OAuthSignIn(object):
 		pass
 
 	def get_callback_url(self):
-		return url_for('oauth_callback', provider=self.provider_name, _external=True)
+		return url_for('auth.oauth_callback', provider=self.provider_name, _external=True)
 
 	@classmethod
 	def get_provider(self, provider_name):
 		if self.providers is None:
 			self.providers = {}
 			for provider_class in self.__subclasses__():
-				provider = proveder_class()
-				self.providers[provider.provider_name] = provider
+				provider = provider_class()
+				self.providers[provider_name] = provider
 		return self.providers[provider_name]
 
 class FacebookSignIn(OAuthSignIn):
@@ -46,6 +46,7 @@ class FacebookSignIn(OAuthSignIn):
 			response_type='code',
 			redirect_uri= self.get_callback_url())
 		)
+		# return '<p>Hello, world!</p>'
 
 	def callback(self):
 		if 'code' not in request.args:

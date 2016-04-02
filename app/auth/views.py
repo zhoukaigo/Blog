@@ -1,7 +1,7 @@
 from flask import render_template
 from . import auth
 from .oauth import OAuthSignIn
-from flask.ext.login import current_user
+from flask.ext.login import current_user, login_user
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
