@@ -13,7 +13,7 @@ class config:
 			'secret': os.environ.get('FACEBOOK_SECRET_LOCAL')
 		}
 	}
-
+	
 	@staticmethod
 	def init_app(app):
 		pass

@@ -1,5 +1,7 @@
 from flask import render_template
 from . import auth
+from .oauth import OAuthSignIn
+from flask.ext.login import current_user
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -12,6 +14,7 @@ def oauth_authorize(provider):
         return redirect(url_for('index'))
     oauth = OAuthSignIn.get_provider(provider)
     return oauth.authorize()
+    # return render_template('auth/login.html')
 
 @auth.route('/callback/<provider>')
 def oauth_callback(provider):
