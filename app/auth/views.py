@@ -3,12 +3,12 @@ from . import auth
 from .oauth import OAuthSignIn
 from flask.ext.login import current_user, login_user
 
-@auth.route('/login', methods=['GET', 'POST'])
+@auth.route('/login/', methods=['GET', 'POST'])
 def login():
 	pass
 	return render_template('auth/login.html')
 
-@auth.route('/authorize/<provider>')
+@auth.route('/authorize/<provider>/')
 def oauth_authorize(provider):
     if not current_user.is_anonymous:
         return redirect(url_for('main.index'))
@@ -16,19 +16,26 @@ def oauth_authorize(provider):
     return oauth.authorize()
     # return render_template('auth/login.html')
 
-@auth.route('/callback/<provider>')
+@auth.route('/callback/<provider>/')
 def oauth_callback(provider):
     if not current_user.is_anonymous:
         return redirect(url_for('main.index'))
+    # return '<p>hello, world!</p>'
     oauth = OAuthSignIn.get_provider(provider)
+    temp = str(type(oauth))
+    # return render_template('auth/login.html', temp=temp)
     social_id, username, email = oauth.callback()
+    return render_template('auth/login.html', code=social_id, grant_type=username, redirect_uri=email)
     if social_id is None:
         flash('Authentication failed.')
         return redirect(url_for('main.index'))
+    
     user = User.query.filter_by(social_id=social_id).first()
+
     if not user:
         user = User(social_id=social_id, nickname=username, email=email)
         db.session.add(user)
         db.session.commit()
-    login_user(user, True)
-    return redirect(url_for('main.index'))
+    # login_user(user, True)
+    # return redirect(url_for('main.index'))
+    return '<p>hello, world!</p>'
