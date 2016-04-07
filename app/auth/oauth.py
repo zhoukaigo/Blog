@@ -81,6 +81,7 @@ class QQSignIn(OAuthSignIn):
 		return redirect(self.service.get_authorize_url(
 			scope='get_user_info',
 			response_type='code',
+			state='temp',
 			redirect_uri= self.get_callback_url())
 		)
 		# return '<p>Hello, world!</p>'
