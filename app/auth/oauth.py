@@ -93,7 +93,7 @@ class QQSignIn(OAuthSignIn):
 		# return data['code'], data['grant_type'], data['redirect_uri']
 		oauth_session = self.service.get_auth_session(data=data)
 		# return data['code'], data['grant_type'], data['redirect_uri']
-		me = oauth_session.get().json()
+		me = oauth_session.get('me?fields=nickname,year').json()
 		return me, me, me
 		me = oauth_session.get('me?fields=nickname,year').json()
 		return (
