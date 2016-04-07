@@ -88,13 +88,14 @@ class QQSignIn(OAuthSignIn):
 	def callback(self):
 		if 'code' not in request.args:
 			return None, None, None
+		return 'a', 'b', 'c'
 		data = {'code': request.args['code'], 'grant_type': 'authorization_code', 'redirect_uri': self.get_callback_url()}
 		# return data['code'], data['grant_type'], data['redirect_uri']
 		oauth_session = self.service.get_auth_session(data=data)
 		# return data['code'], data['grant_type'], data['redirect_uri']
 		me = oauth_session.get().json()
 		return me, me, me
-		me = oauth_session.get('me?fields=id,email').json()
+		me = oauth_session.get('me?fields=nickname,year').json()
 		return (
 			'qq$' + me['id'],
 			me.get('email').split('@')[0],  # qq does not provide
