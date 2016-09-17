@@ -12,8 +12,12 @@ def archives():
 
 @main.route('/about/')
 def about():
+<<<<<<< HEAD
     return render_template('about.html')
 
 @main.route('/resume/')
 def resume():
     return render_template('resume.html')
+=======
+    return render_template('about.html')
+>>>>>>> f2d69d82237baac92bfde3a4dc5193c3721c3c2e

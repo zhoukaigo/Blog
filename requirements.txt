@@ -1,10 +1,17 @@
+<<<<<<< HEAD
 dominate==2.1.16                                                                
+=======
+dominate==2.1.16
+>>>>>>> f2d69d82237baac92bfde3a4dc5193c3721c3c2e
 Flask==0.10.1
 Flask-Bootstrap==3.3.5.7
 Flask-Login==0.3.2
 Flask-Script==2.0.5
 Flask-SQLAlchemy==2.1
+<<<<<<< HEAD
 gunicorn==19.4.5
+=======
+>>>>>>> f2d69d82237baac92bfde3a4dc5193c3721c3c2e
 itsdangerous==0.24
 Jinja2==2.8
 MarkupSafe==0.23
@@ -13,4 +20,8 @@ requests==2.9.1
 SQLAlchemy==1.0.12
 visitor==0.1.2
 Werkzeug==0.11.2
+<<<<<<< HEAD
 
+=======
+wheel==0.24.0
+>>>>>>> f2d69d82237baac92bfde3a4dc5193c3721c3c2e

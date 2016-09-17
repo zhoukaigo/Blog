@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 from flask import current_app
+=======
+from rauth import OAuth2Service
+from flask import current_app, url_for, redirect, request, session 
+>>>>>>> f2d69d82237baac92bfde3a4dc5193c3721c3c2e
 
 class OAuthSignIn(object):
 	providers = None
@@ -16,14 +21,23 @@ class OAuthSignIn(object):
 		pass
 
 	def get_callback_url(self):
+<<<<<<< HEAD
 		return url_for('oauth_callback', provider=self.provider_name, _external=True)
+=======
+		return url_for('auth.oauth_callback', provider=self.provider_name, _external=True)
+>>>>>>> f2d69d82237baac92bfde3a4dc5193c3721c3c2e
 
 	@classmethod
 	def get_provider(self, provider_name):
 		if self.providers is None:
 			self.providers = {}
+<<<<<<< HEAD
 			for provider_class in self.__subclass__():
 				provider = proveder_class()
+=======
+			for provider_class in self.__subclasses__():
+				provider = provider_class()
+>>>>>>> f2d69d82237baac92bfde3a4dc5193c3721c3c2e
 				self.providers[provider.provider_name] = provider
 		return self.providers[provider_name]
 
@@ -40,9 +54,34 @@ class FacebookSignIn(OAuthSignIn):
 		)
 
 	def authorize(self):
+<<<<<<< HEAD
 		pass
 
 	def callback():
 		pass
+=======
+		return redirect(self.service.get_authorize_url(
+			scope='email',
+			response_type='code',
+			redirect_uri= self.get_callback_url())
+		)
+		# return '<p>Hello, world!</p>'
+
+	def callback(self):
+		if 'code' not in request.args:
+			return 'b', 'c', 'd'
+		data = {'code': request.args['code'], 'grant_type': 'authorization_code', 'redirect_uri': self.get_callback_url()}
+		# return data['code'], data['grant_type'], data['redirect_uri']
+		oauth_session = self.service.get_auth_session(data=data)
+		# return data['code'], data['grant_type'], data['redirect_uri']
+		me = oauth_session.get('me?fields=id,email').json()
+		return (
+			'facebook$' + me['id'],
+			me.get('email').split('@')[0],  # Facebook does not provide
+											# username, so the email's user
+											# is used instead
+			me.get('email')
+		)
+>>>>>>> f2d69d82237baac92bfde3a4dc5193c3721c3c2e
 
 	
