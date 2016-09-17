@@ -32,7 +32,7 @@ def oauth_callback(provider):
     oauth = OAuthSignIn.get_provider(provider)
     temp = str(type(oauth))
     social_id, username, email = oauth.callback()
-    # return render_template('auth/login.html', code=social_id, grant_type=username, redirect_uri=email)
+    return render_template('auth/login.html', code=social_id, grant_type=username, redirect_uri=email)
     if social_id is None:
         flash('Authentication failed.')
         return redirect(url_for('main.index'))

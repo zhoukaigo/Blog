@@ -15,6 +15,10 @@ class config:
 		'facebook':{
 			'id': os.environ.get('FACEBOOK_ID_LOCAL'),
 			'secret': os.environ.get('FACEBOOK_SECRET_LOCAL')
+		},
+		'qq':{
+			'id': os.environ.get('QQ_ID_LOCAL'),
+			'secret': os.environ.get('QQ_SECRET_LOCAL')
 		}
 	}
 <<<<<<< HEAD

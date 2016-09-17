@@ -69,7 +69,7 @@ class FacebookSignIn(OAuthSignIn):
 
 	def callback(self):
 		if 'code' not in request.args:
-			return 'b', 'c', 'd'
+			return None, None, None
 		data = {'code': request.args['code'], 'grant_type': 'authorization_code', 'redirect_uri': self.get_callback_url()}
 		# return data['code'], data['grant_type'], data['redirect_uri']
 		oauth_session = self.service.get_auth_session(data=data)
@@ -84,4 +84,46 @@ class FacebookSignIn(OAuthSignIn):
 		)
 >>>>>>> f2d69d82237baac92bfde3a4dc5193c3721c3c2e
 
-	
+
+class QQSignIn(OAuthSignIn):
+	def __init__(self):
+		super(QQSignIn, self).__init__('qq')
+		self.service = OAuth2Service(
+			name = 'qq',
+			client_id = self.consumer_id,
+			client_secret = self.consumer_secret,
+			authorize_url = 'https://graph.qq.com/oauth2.0/authorize',
+			access_token_url = 'https://graph.qq.com/oauth2.0/token',
+			base_url = 'https://graph.qq.com/'
+		)
+
+	def authorize(self):
+		return redirect(self.service.get_authorize_url(
+			scope='get_user_info',
+			response_type='code',
+			state='temp',
+			redirect_uri= self.get_callback_url())
+		)
+		# return '<p>Hello, world!</p>'
+
+	def callback(self):
+		if 'code' not in request.args:
+			return None, None, None
+		# return 'a', 'b', 'c'
+		openid_session = self.service.get_auth_session()
+		me = oauth_session.get('me?fields=openid').json()
+		return me, me, me
+		data = {'code': request.args['code'], 'grant_type': 'authorization_code', 'redirect_uri': self.get_callback_url()}
+		# return data['code'], data['grant_type'], data['redirect_uri']
+		oauth_session = self.service.get_auth_session(data=data)
+		# return data['code'], data['grant_type'], data['redirect_uri']
+		me = oauth_session.get('me?fields=nickname,year').json()
+		return me, me, me
+		me = oauth_session.get('me?fields=nickname,year').json()
+		return (
+			'qq$' + me['id'],
+			me.get('email').split('@')[0],  # qq does not provide
+											# username, so the email's user
+											# is used instead
+			me.get('email')
+		)
