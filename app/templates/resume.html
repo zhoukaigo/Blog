@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>周凯的简历</title>
+    <link rel="icon" href="{{ url_for('static', filename='zhoukai.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='resume.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.0/remodal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.0/remodal-default-theme.min.css">
+</head>
+
+<body>
+    <div class="container" id="cv">
+        <div class="side">
+            <div class="me">
+                <div class="portrait" style="background-image: url('../static/blue.jpg');">
+                </div>
+                <h1 id="username" >周凯</h1>
+                <!-- <h4 id="persona-tag" >Python / Web / 互联网教育</h4> -->
+            </div>
+            <div class="profile info-unit">
+                <h2 class="info-header"><i class="iconfont icon-person"></i> <span class="info-title">基本信息</span></h2>
+                <hr>
+                <ul class="info-list">
+                    <li>
+                        <label class="left-label">姓名</label><span class="label-value">周凯</span></li>
+                    <li>
+                        <label class="left-label">学历</label><span class="label-value">硕士</span></li>
+                    <li>
+                        <label class="left-label">毕业院校</label><span class="label-value">西安交通大学</span></li>
+                    <li>
+                        <label class="left-label">毕业年份</label><span class="label-value">2017</span></li>
+                </ul>
+            </div>
+            <div class="contact info-unit">
+                <h2 class="info-header"><i class="iconfont icon-call"></i> <span class="info-title">联系方式</span></h2>
+                <hr>
+                <ul class="info-list">
+                    <li>
+                        <label class="left-label">手机</label><span class="label-value">182-9287-7064</span></li>
+                    <li>
+                        <label class="left-label">邮箱</label><span class="label-value">zhoukaigo@qq.com</span></li>
+                    <li>
+                        <label class="left-label">个人主页</label><span class="label-value">zhoukaigo.com</span></li>
+                    <li>
+                        <label class="left-label">Github</label><span class="label-value">github.com/zhoukaigo</span></li>
+                </ul>
+            </div>
+            <div class="stack info-unit">
+                <h2 class="info-header"><i class="iconfont icon-build"></i> <span class="info-title">技能点</span></h2>
+                <hr>
+                <div id="left">
+                <ul class="stack-list">
+                    <li>AutoCAD</li>
+                    <li>Solidworks</li>
+                    <li>Pro/Engineer</li>
+                    <li>Unigraphics NX</li>
+                    <li>COMSOL</li>
+                    <li>ABAQUS</li>
+                    <li>Multisim</li>
+
+                </ul>
+                </div>
+                <div id="right">
+                <ul class="stack-list">
+                    <li>Python</li>
+                    <li>MATLAB</li>
+                    <li>Git</li>
+                    <li>HTTP</li>
+                    <li>HTML/CSS</li>
+                    <li>JavaScript</li>
+                    <li>OriginLab</li>
+                </ul>
+                </div>
+            </div>
+
+            <div class="code info-unit">
+                <h2 class="info-header"><i class="iconfont icon-weixin"></i> <span class="info-title">个人微信</span></h2>
+                <hr>
+                <div class="weixin">
+                    <img src="{{ url_for('static', filename='weixin.jpg') }}" alt="">
+
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="education info-unit right-list">
+                <h2 class="info-header"><i class="iconfont icon-education"></i> <span class="info-title">教育经历</span></h2>
+                <hr>
+                <ul class="experience-list">
+                    <li>
+                        <h3>西安交通大学 - 机械制造（硕士）2014-2017</h3>
+                    </li>
+                    <li>
+                        <h3>哈尔滨工业大学 - 机械设计制造及其自动化（本科）2010-2014</h3>
+                    </li>
+                </ul>
+            </div>
+            <div class="work info-unit right-list">
+                <h2 class="info-header"><i class="iconfont icon-work"></i> <span class="info-title">实习经历</span></h2>
+                <hr>
+                <ul class="experience-list">
+                    <li>
+                        <h3>苏州陈那自动化</h3>
+                        <p>
+                            完成气浮轴承和气浮主轴的设计、装配及调试，完成多孔质石墨轴瓦的加工。
+                        </p>
+                    </li>
+                    <li>
+                        <h3>北京龙创光学机械有限公司</h3>
+                        <p>完成玻璃环的铣磨和抛光以及相关砂轮、夹具的设计。
+                        </p>
+                    </li>
+                    <li>
+                        <h3>长春一汽</h3>
+                    </li>
+                    <li>
+                        <h3>哈尔滨汽轮机厂，哈尔滨量具刃具厂，哈尔滨电机厂，哈尔滨轴承集团</h3>
+                    </li>
+                </ul class="experience-list">
+            </div>
+            <div class="project info-unit right-list">
+                <h2 class="info-header"><i class="iconfont icon-project"></i> <span class="info-title">个人项目</span></h2>
+                <hr>
+                <ul class="experience-list">
+                    <li>
+                        <h3>气浮轴承及气浮主轴的研发</h3>
+                        <p>
+                            该项目以高端制造装备中的高精气体轴承支撑主轴为典型研究对象，对多孔质气浮轴承的理论分析、气浮主轴的设计及优化、气浮主轴的性能试验进行研究。其中我完成的工作有：气浮轴承的设计及其装配，并在此基础上完成气浮主轴的设计，同时完成多孔质石墨轴瓦的加工制造。
+                            <br/>
+                        </p>
+                    </li>
+                    <li>
+                        <h3>玻璃环的铣磨及其抛光</h3>
+                        <p>
+                            该玻璃环除了有尺寸要求外，还有严格的形位公差要求，同时要求抛光并达到相应的光学要求。其中我完成的工作有：制定加工工艺，完成玻璃环的铣磨、抛光及相关砂轮、夹具的设计。采用内孔和外环同时抛光的工艺，使抛光速度大大提高。
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="trophy info-unit">
+                <h2 class="info-header"><i class="iconfont icon-trophy"></i> <span class="info-title">奖项与证书</span></h2>
+                <hr>
+                <ul class="experience-list">
+                    <li>
+                        <h3>全国大学生数学竞赛黑龙江赛区一等奖</h3>
+<!--                         <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam。
+                        </p> -->
+                    </li>
+                    <li>
+                        <h3>哈尔滨工业大学人民奖学金（三等）</h3>
+<!--                         <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam。
+                        </p> -->
+                    </li>
+                    <li>
+                        <h3>英语四级（592）, 英语六级（514）</h3>
+<!--                         <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam。
+                        </p> -->
+                    </li>
+<!--                     <li>
+                        <h3>曾获统一冰红茶“再来一瓶”奖</h3>
+                        <p>
+                            "再来一瓶"奖中奖概率很低, 是一个很重要的奖
+                        </p>
+                    </li>   -->
+            </div>
+            <div class="trophy info-unit">
+                <h2 class="info-header"><i class="iconfont icon-star"></i> <span class="info-title">社会活动</span></h2>
+                <hr>
+                <ul class="experience-list">
+                    <li>
+                        <h3>西安浐灞石佛寺小学支教（2015）</h3>
+                    </li>
+                    <li>
+                        <h3>关爱小动物之救治流浪狗（2013）</h3>
+                    </li>
+                    <li>
+                        <h3>创建学院图书室（2012）</h3>
+                    </li>
+                    <li>
+                        <h3>学雷锋之清洁社区（2012）</h3>
+                    </li>
+                    <li>
+                        <h3>绿协之植树活动（2011）</h3>
+                    </li>
+            </div>
+            <div class="aboutme info-unit right-paragraph">
+                <h2 class="info-header"><i class="iconfont icon-flower"></i> <span class="info-title">自我评价</span></h2>
+                <hr>
+                <ul class="rate-list">
+                    <li>
+                        <h3>逻辑思维能力强，数理功底扎实，曾获大学生数学竞赛黑龙江赛区一等奖。</h3>
+                    </li>
+                    <li>
+                        <h3>专业基础扎实，成绩排名中上；实践能力强，在北京龙创、陈那自动化等公司实习将近一年。</h3>
+                    </li>
+                    <li>
+                        <h3>热爱新鲜事物，勇于改变，敢于尝试，本硕先后就读于哈工大和西安交大；自学编程，独立建立个人网站zhoukaigo.com。</h3>
+                    </li>
+                    <li>
+                        <h3>富有责任心，勇于承担责任，多次利用业余时间参加社会活动。创建学院图书室，方便同学在公寓学习；参加支教活动，带给孩子们不一样的学习体验。</h3>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
